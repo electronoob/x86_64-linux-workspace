@@ -53,5 +53,7 @@ fi
 
 echo -e "DONE!"
 
-cat "${DIRNAME}/arch/x86/entry/syscalls/syscall_64.tbl"
+grep -E "^[[:digit:]].*" "${DIRNAME}/arch/x86/entry/syscalls/syscall_64.tbl"
+
+#egrep -Roz 'SYSCALL_DEFINE.\(faccessat2.*\n.*\)'
 
