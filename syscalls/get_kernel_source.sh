@@ -55,5 +55,7 @@ echo -e "DONE!"
 
 grep -E "^[[:digit:]].*" "${DIRNAME}/arch/x86/entry/syscalls/syscall_64.tbl"
 
+#dumb regex combinations don't seem to work on egrep, sigh.
 #egrep -Roz 'SYSCALL_DEFINE.\(faccessat2.*\n.*\)'
-
+#egrep -Eoz 'SYSCALL_DEFINE.\([[:alnum:][:space:],*]*\)'
+#cat linux-5.10.1/fs/open.c| egrep -Eoz 'SYSCALL_DEFINE.\(faccessat[a-z0-9, _*&\r\n\t]*\)'
