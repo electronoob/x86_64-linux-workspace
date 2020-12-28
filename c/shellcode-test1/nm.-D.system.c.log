@@ -1,0 +1,6 @@
+                 w __cxa_finalize@@GLIBC_2.2.5
+                 w __gmon_start__
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+                 U __libc_start_main@@GLIBC_2.2.5
+                 U system@@GLIBC_2.2.5

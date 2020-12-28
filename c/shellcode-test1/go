@@ -1,8 +1,0 @@
-rm a.out
-rm *.execve.c.log
-ls 
-gcc -g3 ./execve.c
-objdump -Mintel -d ./a.out > objdump.execve.c.log
-strace --output strace.execve.c.log ./a.out
-ls *.execve.c.log
-echo yep.
