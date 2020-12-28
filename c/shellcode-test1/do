@@ -1,20 +1,30 @@
 #!/bin/bash
 FILE_NAME=$1
+
+echo "This command is meant for compiling, running, and generating some info."
+
 if [ -z $1 ]
 then
-	echo "This command is meant for compiling, running, and generating some info."
 	echo "error: missing filename option, usage: '$0 filename.c'" >&2
 	exit 1
 fi
-echo "*.${FILE_NAME}.log"
+if [ ! -f "${FILE_NAME}" ]; then	
+	echo "error: file not found '${FILE_NAME}'" >&2
+	exit 1
+fi
 
-rm a.out
 rm *.${FILE_NAME}.log
-gcc -g3 "./${FILE_NAME}"
-objdump -Mintel -d ./a.out > objdump.${FILE_NAME}.log
-strace --output strace.${FILE_NAME}.log ./a.out
+
+OUTPUT_NAME="${FILE_NAME}"
+rm a.out
+gcc -g0 "./${FILE_NAME}"
+objdump -Mintel -d ./a.out > objdump.${OUTPUT_NAME}.log
+# strace is irritating when in a loop like this
+strace --output strace.${OUTPUT_NAME}.log ./a.out
 # nm defaults to a.out
-nm -D > nm.-D.${FILE_NAME}.log
-nm > nm.${FILE_NAME}.log
+nm -D > nm.-D.${OUTPUT_NAME}.log
+nm > nm.${OUTPUT_NAME}.log
+
 ls -l *.${FILE_NAME}.log
+
 echo yep.
