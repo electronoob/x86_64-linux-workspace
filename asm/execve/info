@@ -1,0 +1,2 @@
+objcopy --dump-section .text=filename a.out
+this will give a slice, called filename, containing the .text segment!
