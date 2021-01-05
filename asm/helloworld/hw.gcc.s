@@ -3,10 +3,9 @@
 
 	.text
 _start:
-main:
 	mov	rax, 1
 	mov	rdi, 1
-	mov	rsi, message
+	mov	rsi, offset message
 	mov	rdx, 13
 	syscall
 
