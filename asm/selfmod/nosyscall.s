@@ -43,4 +43,8 @@ dicks: .byte 0xff, 0xff
 exit:	//exit
 	mov 	al, 60
 	xor	rdi, rdi
-	syscall
+
+
+	movw [pricks], 0x050f
+pricks: .byte 0xff, 0xff
+
