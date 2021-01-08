@@ -22,6 +22,7 @@ open:
 	//inc word ptr [cocks]
 	movb [cocks], 0x0f
 	//syscall
+	nop
 cocks:	.byte 0x05, 0x05
 	push rax
 
@@ -39,6 +40,7 @@ sendfile:
 	mov	al, 40
 
 	movb [dicks], 0x0f
+	nop
 dicks: .byte 0x05, 0x05
 exit:	//exit
 	mov 	al, 60
@@ -46,5 +48,6 @@ exit:	//exit
 
 
 	movb [pricks], 0x0f
+	nop
 pricks: .byte 0x05, 0x05
 
