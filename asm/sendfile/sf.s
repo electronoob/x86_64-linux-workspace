@@ -39,5 +39,4 @@ exit:	//exit
 	mov 	al, 60
 	xor	rdi, rdi
 	syscall
-space:.lcomm balls 1024
 in: .ascii "/flag"
