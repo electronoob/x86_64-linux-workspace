@@ -39,4 +39,3 @@ exit:	//exit
 	mov 	al, 60
 	xor	rdi, rdi
 	syscall
-in: .ascii "/flag"
