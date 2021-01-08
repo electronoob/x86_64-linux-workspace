@@ -17,12 +17,8 @@ _start:
 
 	push	rsp
 	pop	rsi
-//	mov 	rsi, rsp
         mov     edx, 0
         syscall
-        pop rcx
-	pop rcx
-	pop rcx
 
 arg0: .ascii "/bin/cat\0"
 arg1: .ascii "/flag\0"
