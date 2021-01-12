@@ -5,19 +5,17 @@
 _start:
 open:
         // open 
-        xor rax, rax
-        inc rax
-        inc rax
+        mov 	al, 0x2
         //const char __user * filename
-        mov rdx, 0x31
+        mov 	rdx, 0x31
+//1
         push    rdx
-        mov rdi, rsp
+        mov 	rdi, rsp
         // int flags
-        xor rsi, rsi
+        xor 	rsi, rsi
         // umode_t mode
-        xor rdx, rdx
+        xor 	rdx, rdx
         syscall
-
         push rax
 sendfile:
         // size_t count
@@ -27,11 +25,10 @@ sendfile:
         // int in_fd
         pop     rsi
         // int out_fd
-        xor     rdi, rdi
-        inc rdi
+	mov 	edi, 0x2
         mov     al, 40
         syscall
 exit:   //exit
         mov     al, 60
-        xor     rdi, rdi
+        //xor     rdi, rdi // prob irrelevant
         syscall
